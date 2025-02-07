@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript is running!");
 
-    // Selectează butoanele
+    // Selectează butoanele de navigare
     let buttons = document.querySelectorAll(".nav-btn");
 
     // Array pentru a stoca cheltuielile
     let expenses = [];
 
     // Selectează elementele din formularul de adăugare a cheltuielilor
-    const expenseNameInput = document.getElementById("expenseName");
-    const expenseAmountInput = document.getElementById("expenseAmount");
+    const expenseNameInput = document.getElementById("desc");
+    const expenseAmountInput = document.getElementById("amount");
     const addExpenseBtn = document.getElementById("addExpenseBtn");
     const reportsList = document.getElementById("reportsList");
+    const reportsSection = document.getElementById("reportsSection");
+    const addExpenseForm = document.getElementById("addExpenseForm");
 
     // Adăugăm eveniment pentru butonul de "Add Expense"
     addExpenseBtn.addEventListener("click", function (event) {
@@ -38,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons[2].addEventListener("click", function () {
         console.log("Reports button clicked");
 
+        // Arată secțiunea de rapoarte
+        addExpenseForm.style.display = "none"; // Ascunde formularul
+        reportsSection.style.display = "block"; // Afișează secțiunea de rapoarte
+
         // Golește lista de rapoarte
         reportsList.innerHTML = "";
 
@@ -53,14 +59,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Adaugă event listener pentru celelalte butoane
+    // Adăugăm eveniment pentru butonul de "Home"
     buttons[0].addEventListener("click", function () {
         console.log("Home button clicked");
-        window.location.href = "index.html";
+        location.reload(); // Reîncarcă pagina pentru a reveni la formularul de cheltuieli
     });
 
+    // Adăugăm eveniment pentru butonul de "Add Expense" (pentru a reveni la formular)
     buttons[1].addEventListener("click", function () {
         console.log("Add Expense button clicked");
-        alert("Deschide formularul de adăugare!");
+
+        // Ascunde secțiunea de rapoarte și arată formularul
+        reportsSection.style.display = "none";
+        addExpenseForm.style.display = "block";
     });
 });
