@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adaugă event listener pentru fiecare buton
     buttons[0].addEventListener("click", function () {
         console.log("Home button clicked");
-        window.location.href = "home.html"; // Modifică dacă ai altă pagină
+        window.location.href = "index.html"; // Modifică dacă ai altă pagină
     });
 
     buttons[1].addEventListener("click", function () {
