@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Selectează elementele din formularul de adăugare a cheltuielilor
     const expenseNameInput = document.getElementById("desc");
     const expenseAmountInput = document.getElementById("amount");
-    const addExpenseBtn = document.getElementById("addExpenseBtn");
+    const addExpenseBtn = document.getElementById("addExpense");
     const reportsList = document.getElementById("reportsList");
     const reportsSection = document.getElementById("reportsSection");
     const addExpenseForm = document.getElementById("addExpenseForm");
@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adăugăm eveniment pentru butonul de "Home"
     buttons[0].addEventListener("click", function () {
         console.log("Home button clicked");
-        location.reload(); // Reîncarcă pagina pentru a reveni la formularul de cheltuieli
+        addExpenseForm.style.display = "block"; // Afișează formularul
+        reportsSection.style.display = "none"; // Ascunde secțiunea de rapoarte
     });
 
     // Adăugăm eveniment pentru butonul de "Add Expense" (pentru a reveni la formular)
