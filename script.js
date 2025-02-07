@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const reportsSection = document.getElementById("reportsSection");
     const addExpenseForm = document.getElementById("addExpenseForm");
 
-    // Adăugăm eveniment pentru butonul de "Add Expense"
+    // Adăugăm eveniment pentru butonul de "Add Expense" (green)
     addExpenseBtn.addEventListener("click", function (event) {
         event.preventDefault(); // Previne comportamentul implicit al formularului
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reportsSection.style.display = "none"; // Ascunde secțiunea de rapoarte
     });
 
-    // Adăugăm eveniment pentru butonul de "Add Expense" (pentru a reveni la formular)
+    // Adăugăm eveniment pentru butonul de "Add Expense" (portocaliu) din meniu
     buttons[1].addEventListener("click", function () {
         console.log("Add Expense button clicked");
 
