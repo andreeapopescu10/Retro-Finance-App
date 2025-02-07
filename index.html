@@ -73,7 +73,6 @@
         <h1 class="title">RetroFinance</h1>
         <div class="nav">
             <button class="nav-btn">Home</button>
-            <button class="nav-btn">Add Expense</button>
             <button class="nav-btn">Reports</button>
         </div>
         <div class="form-container" id="addExpenseForm">
@@ -153,7 +152,7 @@
             });
 
             // Adăugăm eveniment pentru butonul de "Reports"
-            buttons[2].addEventListener("click", function () {
+            buttons[1].addEventListener("click", function () {
                 console.log("Reports button clicked");
 
                 // Arată secțiunea de rapoarte
@@ -180,15 +179,6 @@
                 console.log("Home button clicked");
                 addExpenseForm.style.display = "block"; // Afișează formularul
                 reportsSection.style.display = "none"; // Ascunde secțiunea de rapoarte
-            });
-
-            // Adăugăm eveniment pentru butonul de "Add Expense" (portocaliu) din meniu
-            buttons[1].addEventListener("click", function () {
-                console.log("Add Expense button clicked");
-
-                // Ascunde secțiunea de rapoarte și arată formularul
-                reportsSection.style.display = "none";
-                addExpenseForm.style.display = "block";
             });
         });
     </script>
