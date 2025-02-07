@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Deschide formularul de adăugare!"); // Test alert
     });
 
-    buttons[2].addEventListener("click", function () {
+    buttons[2].addEventListener("click", function showReport()  {
         console.log("Reports button clicked");
         window.location.href = "reports.html"; // Modifică dacă ai altă pagină
+        alert("Report function triggered!");
     });
 });
