@@ -66,6 +66,17 @@
         .reports-section {
             display: none;
         }
+
+        /* Modificăm aici pentru ca eticheta să fie în fața câmpului de input */
+        .amount-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .amount-container label {
+            margin-right: 10px; /* Pentru a pune puțin spațiu între etichetă și câmp */
+        }
     </style>
 </head>
 <body>
@@ -82,10 +93,12 @@
             <label for="desc">Description:</label>
             <input type="text" id="desc" placeholder="Enter description">
             
-            <!-- Eticheta "Amount ($):" plasată corect în fața câmpului pentru sumă -->
-            <label for="amount">Amount ($):</label>
-            <input type="number" id="amount" placeholder="Enter amount">
-            
+            <!-- Eticheta Amount ($) plasată în fața câmpului -->
+            <div class="amount-container">
+                <label for="amount">Amount ($):</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+            </div>
+
             <!-- Butonul pentru a adăuga cheltuiala -->
             <button class="add-btn" id="addExpense">Add Expense</button>
         </div>
