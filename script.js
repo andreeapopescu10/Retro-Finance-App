@@ -1,55 +1,39 @@
-// Show section based on navigation
-function showSection(sectionId) {
-  document.querySelectorAll('.section').forEach(section => {
-    section.classList.remove('active');
-  });
-  document.getElementById(sectionId).classList.add('active');
-}
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript is running!");
 
-// Store expenses in local storage
-let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    // Selectează butoanele de navigare
+    document.querySelector(".nav-btn:nth-child(1)").addEventListener("click", function () {
+        window.location.href = "home.html"; // Înlocuiește cu pagina reală
+    });
 
-// Add new expense
-document.getElementById('expense-form').addEventListener('submit', function (event) {
-  event.preventDefault();
+    document.querySelector(".nav-btn:nth-child(2)").addEventListener("click", function () {
+        toggleExpenseForm();
+    });
 
-  const description = document.getElementById('description').value;
-  const amount = parseFloat(document.getElementById('amount').value);
+    document.querySelector(".nav-btn:nth-child(3)").addEventListener("click", function () {
+        window.location.href = "reports.html"; // Înlocuiește cu pagina reală
+    });
 
-  if (description && amount) {
-    const expense = { description, amount };
-    expenses.push(expense);
+    // Funcție pentru afișarea formularului de adăugare cheltuieli
+    function toggleExpenseForm() {
+        let form = document.querySelector(".form-container");
+        if (form.style.display === "none" || form.style.display === "") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
 
-    // Store updated expenses in local storage
-    localStorage.setItem('expenses', JSON.stringify(expenses));
+    // Funcție pentru adăugarea unei cheltuieli (exemplu simplu)
+    document.querySelector(".add-btn").addEventListener("click", function () {
+        let desc = document.querySelector("#desc").value;
+        let amount = document.querySelector("#amount").value;
 
-    // Show success message
-    document.getElementById('expense-message').textContent = 'Expense added!';
-    setTimeout(() => {
-      document.getElementById('expense-message').textContent = '';
-    }, 2000);
+        if (desc === "" || amount === "") {
+            alert("Completează toate câmpurile!");
+            return;
+        }
 
-    // Clear form inputs
-    document.getElementById('description').value = '';
-    document.getElementById('amount').value = '';
-  }
-
-  showExpenses();
+        alert(`Cheltuială adăugată: ${desc} - ${amount}$`);
+    });
 });
-
-// Show expenses in reports section
-function showExpenses() {
-  const expenseList = document.getElementById('expense-list');
-  expenseList.innerHTML = '';
-
-  expenses.forEach((expense, index) => {
-    const li = document.createElement('li');
-    li.textContent = `${expense.description} - $${expense.amount.toFixed(2)}`;
-    expenseList.appendChild(li);
-  });
-}
-
-// Load expenses on page load
-window.onload = function () {
-  showExpenses();
-};
