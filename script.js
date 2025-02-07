@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Selectează elementele din formularul de adăugare a cheltuielilor
     const expenseNameInput = document.getElementById("desc");
     const expenseAmountInput = document.getElementById("amount");
-    const addExpenseBtn = document.getElementById("addExpense");
+    const addExpenseBtn = document.querySelector(".add-btn"); // Butonul verde
     const reportsList = document.getElementById("reportsList");
     const reportsSection = document.getElementById("reportsSection");
     const addExpenseForm = document.getElementById("addExpenseForm");
