@@ -72,8 +72,8 @@
     <div class="container">
         <h1 class="title">RetroFinance</h1>
         <div class="nav">
-            <button class="nav-btn">Home</button>
-            <button class="nav-btn">Reports</button>
+            <button class="nav-btn" id="homeBtn">Home</button>
+            <button class="nav-btn" id="reportsBtn">Reports</button>
         </div>
         <div class="form-container" id="addExpenseForm">
             <h2>Add New Expense</h2>
@@ -96,7 +96,8 @@
             console.log("JavaScript is running!");
 
             // Selectează butoanele de navigare
-            let buttons = document.querySelectorAll(".nav-btn");
+            let homeBtn = document.getElementById("homeBtn");
+            let reportsBtn = document.getElementById("reportsBtn");
 
             // Array pentru a stoca cheltuielile
             let expenses = [];
@@ -108,9 +109,6 @@
             const reportsList = document.getElementById("reportsList");
             const reportsSection = document.getElementById("reportsSection");
             const addExpenseForm = document.getElementById("addExpenseForm");
-
-            // Debugging pentru a vedea dacă butonul este selectat corect
-            console.log("Add Expense Button", addExpenseBtn);
 
             // Adăugăm eveniment pentru butonul de "Add Expense" (green)
             addExpenseBtn.addEventListener("click", function (event) {
@@ -133,7 +131,7 @@
 
                     alert("Cheltuială adăugată cu succes!");
 
-                    // Nu schimbăm pagina, dar adăugăm cheltuiala la raport
+                    // Ascunde formularul și doar arată secțiunea de rapoarte
                     addExpenseForm.style.display = "none"; // Ascunde formularul
                     reportsSection.style.display = "block"; // Afișează secțiunea de rapoarte
 
@@ -152,7 +150,7 @@
             });
 
             // Adăugăm eveniment pentru butonul de "Reports"
-            buttons[1].addEventListener("click", function () {
+            reportsBtn.addEventListener("click", function () {
                 console.log("Reports button clicked");
 
                 // Arată secțiunea de rapoarte
@@ -175,7 +173,7 @@
             });
 
             // Adăugăm eveniment pentru butonul de "Home"
-            buttons[0].addEventListener("click", function () {
+            homeBtn.addEventListener("click", function () {
                 console.log("Home button clicked");
                 addExpenseForm.style.display = "block"; // Afișează formularul
                 reportsSection.style.display = "none"; // Ascunde secțiunea de rapoarte
