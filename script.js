@@ -31,6 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
             expenseAmountInput.value = "";
 
             alert("Cheltuială adăugată cu succes!");
+
+            // Nu schimbăm pagina, dar adăugăm cheltuiala la raport
+            addExpenseForm.style.display = "none"; // Ascunde formularul
+            reportsSection.style.display = "block"; // Afișează secțiunea de rapoarte
+
+            // Golește lista de rapoarte
+            reportsList.innerHTML = "";
+
+            // Găsește și adaugă toate cheltuielile la rapoarte
+            expenses.forEach(function (expense) {
+                const li = document.createElement("li");
+                li.textContent = `${expense.name}: ${expense.amount} RON`;
+                reportsList.appendChild(li);
+            });
         } else {
             alert("Te rog să completezi toate câmpurile corect!");
         }
