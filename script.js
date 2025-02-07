@@ -15,12 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const reportsSection = document.getElementById("reportsSection");
     const addExpenseForm = document.getElementById("addExpenseForm");
 
+    // Debugging pentru a vedea dacă butonul este selectat corect
+    console.log("Add Expense Button", addExpenseBtn);
+
     // Adăugăm eveniment pentru butonul de "Add Expense" (green)
     addExpenseBtn.addEventListener("click", function (event) {
+        console.log("Add Expense button clicked");  // Debugging pentru confirmare
+
         event.preventDefault(); // Previne comportamentul implicit al formularului
 
         const expenseName = expenseNameInput.value;
         const expenseAmount = parseFloat(expenseAmountInput.value);
+
+        console.log("Expense Data:", expenseName, expenseAmount); // Debugging
 
         if (expenseName && !isNaN(expenseAmount)) {
             // Adaugă cheltuiala în array
